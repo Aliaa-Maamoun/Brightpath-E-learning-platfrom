@@ -31,9 +31,9 @@ This is a **simple E-Learning Platform** implemented with **HTML, CSS, JavaScrip
 - Start Apache and MySQL services from the control panel.
 
 ### 3️⃣ Set up Database:
-
-➥ Open your browser and navigate to: your"http://localhost/phpmyadmin/"
-➥ Username: `root`
+ 
+➥ Open your browser and navigate to: [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)  
+➥ Username: `root`  
 ➥ Password: (leave it empty)
 
 ➥ Once phpMyAdmin opens:
@@ -42,6 +42,7 @@ This is a **simple E-Learning Platform** implemented with **HTML, CSS, JavaScrip
 - Then click **Create**
 
 ---
+
 
 ### 4️⃣ Create `users` table:
 
@@ -56,7 +57,11 @@ CREATE TABLE users (
 	emailUsers TINYTEXT NOT NULL,
 	pwdUsers LONGTEXT NOT NULL
 );
-## 5️⃣ Create `imgupload` table:
+```
+
+---
+
+### 5️⃣ Create `imgupload` table:
 
 ➥ Still under `loginsystemtut`.  
 ➥ Open **SQL tab** again and execute:
@@ -68,6 +73,8 @@ CREATE TABLE imgupload (
 	status int(11) NOT NULL
 );
 ```
+
+---
 
 ## 6️⃣ Deployment:
 
@@ -89,9 +96,11 @@ wamp/www/
 http://localhost/e-learning/
 ```
 
-## 🔹 File overview 
+---
 
-```pgsql
+## 🔹 File Overview
+
+```shell
 e-learning/
 ├── docs/
 │ ├─ SRS.pdf
@@ -108,6 +117,8 @@ e-learning/
 ├── README.md
 ```
 
+---
+
 ## 🔹 Notes
 
 ➥ The **SRS**, **Jira Report**, **UML Diagrams**, and **PowerPoint Presentation** files are located in the `docs/` directory.  
@@ -115,11 +126,15 @@ e-learning/
 - Register and login.
 - Handle photo/image upload.
 
+---
+
 ## 🔹 Contributors
 
 Developer: [Your Name]  
 Design: [Your Name]  
 Tester: [Your Name]  
+
+---
 
 ## 🔹 License
 
