@@ -1,0 +1,407 @@
+% Software Requirements Specification (SRS) for Brightpath E-Learning Platform
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\renewcommand{\arraystretch}{1.4}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+
+
+
+% Hyperref setup for colored links and PDF metadata
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=cyan,
+  pdftitle={Brightpath E-Learning Platform SRS},
+  pdfauthor={Abdelrhman Karam Abdelrsoul Ibrahim Hegazy et al.},
+  pdfsubject={Software Requirements Specification}
+}
+
+% University Logo and Affiliation
+\newcommand{\universitylogo}{
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{E-JUST_logo.png}\\[1em]
+    {\Large Egypt Japan University of Science and Technology}\\[2em]
+  \end{center}
+}
+
+% Header and Footer Setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Brightpath E-Learning Platform}
+\fancyhead[R]{SRS Document}
+\fancyfoot[C]{\thepage}
+
+\title{Software Requirements Specification for Brightpath E-Learning Platform}
+\author{
+  Abdelrhman Karam Abdelrsoul Ibrahim Hegazy (120220126) \\
+  Aliaa Maamoun Ibrahim (120220255) \\
+  Kamal Elsawah (120220005) \\
+  Marchellino Michel (120220317) \\
+  Fatma Mahmoud Abd Elrahman (120220355) \\
+  Ziad Mahmoud Hanafi (120220096)
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+\universitylogo
+
+\pagenumbering{roman}
+\newpage
+\tableofcontents
+\newpage
+
+% Revision History
+\section*{Revision History}
+\begin{longtable}{|p{3cm}|p{3cm}|p{8cm}|}
+\hline
+\textbf{Version} & \textbf{Date} & \textbf{Description} \\
+\hline
+1.0 & \today & Initial complete draft with improvements and added glossary, revision history, appendix, and enhanced PDF metadata. \\
+\hline
+\end{longtable}
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Introduction}
+\subsection{Purpose and Objective}
+This SRS defines requirements for Brightpath - a gamified e-learning platform addressing:
+\begin{itemize}[leftmargin=*]
+  \item Transition from passive memorization to interactive learning in Egyptian national schools
+  \item Reduction of parental concerns (70\% reported) through family engagement features
+  \item Bridging classroom technology gaps (only 25\% use interactive tools) via AI personalization and VR
+  \item Improving engagement for students aged 6-15 through adaptive learning paths
+\end{itemize}
+
+\subsection{Scope}
+The platform shall include:
+\begin{itemize}[leftmargin=*]
+  \item Gamified lessons with points/badges/leaderboards
+  \item VR modules for STEM subjects
+  \item Parent portals for progress tracking and event scheduling
+  \item AI-driven adaptive learning engine
+  \item School licensing integration
+  \item Cross-platform support (Web/iOS/Android)
+\end{itemize}
+
+\section{Stakeholders}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Primary Users:} Students 6-15 years (national schools)
+  \item \textbf{Secondary Users:} Parents, Teachers, School Administrators
+  \item \textbf{Key Partners:} National Schools, UX Designers, AI/ML Developers
+  \item \textbf{Third-Party Services:} Google OAuth, Cloudflare CDN, TensorFlow Lite
+  \item \textbf{System Admins:} Platform maintenance and user management
+\end{itemize}
+
+\section{User and System Requirements}
+\subsection{User Requirements}
+\begin{itemize}[leftmargin=*]
+  \item Students 6-11: Access game-like lessons with visual rewards (e.g., math challenge badges)
+  \item Students 12-15: Receive AI-adjusted learning paths based on quiz performance
+  \item Parents: Schedule learning events + receive weekly progress reports
+  \item Teachers: Create VR lessons and view class engagement heatmaps
+  \item Admins: Monitor system health through Grafana dashboards
+\end{itemize}
+
+\subsection{System Requirements}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Frontend:} React.js (Web), Flutter (Mobile), Unity (Game Engine)
+  \item \textbf{Backend:} Django REST API, Redis (Leaderboards), PostgreSQL
+  \item \textbf{AI Engine:} TensorFlow Lite for on-device personalization
+  \item \textbf{VR:} Three.js framework with <100ms latency
+  \item \textbf{Scalability:} Kubernetes cluster handling 10,000 concurrent users
+  \item \textbf{Security:} AES-256 encryption, COPPA compliance for under-13 users
+\end{itemize}
+
+\section{Functional Requirements}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Gamification Module:}
+  \begin{itemize}
+    \item Point system for lesson completion
+    \item Redeemable badges for learning streaks
+    \item Class/group leaderboards
+  \end{itemize}
+  
+  \item \textbf{VR Learning:}
+  \begin{itemize}
+    \item Interactive 3D simulations (e.g., virtual chemistry lab)
+    \item Collaborative VR projects
+  \end{itemize}
+  
+  \item \textbf{Parent-Teacher Interface:}
+  \begin{itemize}
+    \item In-app messaging system
+    \item Automated performance alerts
+    \item Event scheduling calendar
+  \end{itemize}
+\end{itemize}
+
+\section{Non-Functional Requirements}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Performance:} 60 FPS VR rendering on mid-tier devices
+  \item \textbf{Reliability:} 99.9\% uptime SLA with auto-scaling
+  \item \textbf{Compliance:} COPPA, GDPR, and Egyptian MOE standards
+  \item \textbf{Accessibility:} WCAG 2.1 AA compliance
+  \item \textbf{Scalability:} Horizontal scaling for 500\% userbase growth
+\end{itemize}
+\section{Class Diagram}
+
+This section defines the main classes, their attributes, and methods used in the Brightpath system.
+
+\subsection*{Main Classes}
+\begin{itemize}
+  \item \textbf{Class: User} \\
+  \textbf{Attributes:} userID, name, email, role (Student, Parent, etc.) \\
+  \textbf{Methods:} login(), logout(), updateProfile()
+  
+  \item \textbf{Class: Student (extends User)} \\
+  \textbf{Attributes:} age, badges[], points \\
+  \textbf{Methods:} takeLesson(), viewLeaderboard(), receiveAIContent()
+
+  \item \textbf{Class: Parent (extends User)} \\
+  \textbf{Attributes:} children[] \\
+  \textbf{Methods:} scheduleEvent(), trackProgress(), receiveAlerts()
+
+  \item \textbf{Class: Teacher (extends User)} \\
+  \textbf{Attributes:} subjects[], classes[] \\
+  \textbf{Methods:} createVRLesson(), viewHeatmap()
+
+  \item \textbf{Class: Lesson} \\
+  \textbf{Attributes:} lessonID, title, type (VR/Gamified), difficulty \\
+  \textbf{Methods:} startLesson(), submitAnswer()
+
+  \item \textbf{Class: Badge} \\
+  \textbf{Attributes:} badgeID, name, criteria \\
+  \textbf{Methods:} awardBadge()
+
+  \item \textbf{Class: AIEngine} \\
+  \textbf{Attributes:} modelVersion \\
+  \textbf{Methods:} personalizeLesson(), analyzePerformance()
+
+  \item \textbf{Class: VRModule} \\
+  \textbf{Attributes:} moduleID, subject, latency \\
+  \textbf{Methods:} startSimulation(), joinCollabProject()
+\end{itemize}
+
+\subsection*{System Structure Overview}
+\textbf{User Hierarchy:}
+\begin{itemize}
+  \item \textbf{User (base class):} Shared properties for all roles — student, parent, teacher, admin.
+  \item \textbf{Student:} Can access lessons, earn rewards, and use AI-driven content.
+  \item \textbf{Parent:} Linked to children; can view reports and schedule events.
+  \item \textbf{Teacher:} Can create VR content and view class analytics.
+  \item \textbf{Admin:} Can monitor the system and manage user roles.
+\end{itemize}
+
+\textbf{Educational Content:}
+\begin{itemize}
+  \item \textbf{Lesson:} Basic learning content (title, subject, etc.).
+  \item \textbf{VRLesson:} Extends Lesson; adds interactive, 3D virtual elements.
+\end{itemize}
+
+\textbf{AI and Progress:}
+\begin{itemize}
+  \item \textbf{AILearningPath:} Generates adaptive lessons based on student performance.
+  \item \textbf{Progress:} Tracks scores, streaks, and updates.
+\end{itemize}
+
+\textbf{Gamification:}
+\begin{itemize}
+  \item Tracks points, badges, and leaderboard ranks for each student.
+\end{itemize}
+
+\textbf{Associations:}
+\begin{itemize}
+  \item Students are linked to lessons, progress, gamification, and AI paths.
+  \item Parents are connected to their children.
+  \item Teachers are associated with the VR content they create.
+\end{itemize}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{class_diagram.png}
+  \caption{UML Class Diagram for Brightpath System}
+  \label{fig:class-diagram}
+\end{figure}
+
+
+\section{Use Case Diagram}
+
+\subsection*{Actors}
+\begin{itemize}
+  \item Student (6–11, 12–15)
+  \item Parent
+  \item Teacher
+  \item Administrator
+  \item System Admin
+\end{itemize}
+
+\subsection*{Use Cases}
+\begin{itemize}
+  \item View gamified lessons
+  \item Earn points/badges
+  \item View leaderboard
+  \item Receive AI-personalized content
+  \item Use VR modules
+  \item Schedule learning events (Parent)
+  \item Track student progress (Parent)
+  \item Create VR lessons (Teacher)
+  \item View engagement heatmaps (Teacher)
+  \item Monitor system (Admin)
+  \item Manage users (SysAdmin)
+\end{itemize}
+
+\subsection*{Actor to Use Cases Mapping}
+
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+Actor & Use Cases \\
+\midrule
+Student (6–15) & 
+Login to Platform (UC0), Access Gamified Lessons (UC1), Earn Points \& Badges (UC2), Join Class Leaderboard (UC3), Access VR Modules (UC4), Receive AI-Personalized Path (UC5) \\
+
+Parent & 
+Login to Platform (UC0), View Weekly Progress (UC6), Schedule Learning Events (UC7), Message Teachers (UC8) \\
+
+Teacher & 
+Login to Platform (UC0), Create VR Lessons (UC9), View Engagement Heatmaps (UC10), Message Teachers (UC8) \\
+
+School Admin & 
+Integrate School License (UC13) \\
+
+System Admin & 
+Monitor System Health (UC11), Manage Users \& Roles (UC12) \\
+\bottomrule
+\end{tabularx}
+\subsection*{Relationships Table}
+
+\scriptsize % Smaller font size
+\setlength{\tabcolsep}{2pt} % Minimal column padding
+\renewcommand{\arraystretch}{1.05} % Reduce row spacing
+
+
+\begin{tabularx}{\textwidth}{>{\hsize=0.9\hsize\bfseries}X >{\hsize=0.9\hsize\bfseries}X >{\hsize=0.6\hsize\bfseries}X X}
+\toprule
+Primary Use Case & Related Use Case & Relation Type & Purpose \\
+\midrule
+Access Gamified Lessons (UC1) & Earn Points \& Badges (UC2) & \texttt{<<include>>} & Every gamified lesson awards points and badges \\
+Access Gamified Lessons (UC1) & Join Class Leaderboard (UC3) & \texttt{<<include>>} & Lessons contribute to leaderboard scores \\
+Access VR Modules (UC4) & Create VR Lessons (UC9) & \texttt{<<extend>>} & Optionally includes teacher-created VR content \\
+Receive AI-Personalized Path (UC5) & Notify Parent (UC14) & \texttt{<<include>>} & Notifies parents based on student performance \\
+Schedule Learning Events (UC7) & Message Teachers (UC8) & \texttt{<<extend>>} & Optionally includes messaging during event setup \\
+\bottomrule
+\end{tabularx}
+\normalsize
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{use_case.png}
+  \caption{UML use case for Brightpath System}
+  \label{fig:class-diagram}
+\end{figure}
+
+
+\section{Activity Diagram}
+
+This diagram shows the step-by-step flow a student goes through when using Brightpath:
+
+\subsection*{Actors}
+\begin{itemize}
+  \item Student (6–11, 12–15)
+  \item Parent
+  \item Teacher
+  \item Administrator
+  \item System Admin
+\end{itemize}
+
+\subsection*{Flow Breakdown}
+\begin{enumerate}
+  \item Login to Brightpath: Student starts by signing in.
+  \item Check Age:
+  \begin{itemize}
+    \item If 6–11 years old: Student is guided through gamified lessons, earns points/badges, and joins the leaderboard.
+    \item If 12–15 years old: Student receives an AI-personalized learning path, completes those lessons, and still earns gamification rewards.
+  \end{itemize}
+  \item Access VR Modules: All students may access immersive VR content.
+  \item Check for Teacher-Created Content: If available, the student engages with custom VR lessons.
+  \item Log Progress: The student’s activity is saved.
+  \item Send Weekly Report to Parent: Automated system sends a summary to the parent.
+  \item Update Analytics: Data is used to monitor engagement and inform teachers/AI models.
+\end{enumerate}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\textwidth]{activity_diagram.png}
+  \caption{UML activity diagram for Brightpath System}
+  \label{fig:class-diagram}
+\end{figure}
+
+
+\section{System Architecture}
+\subsection{User Layer}
+\begin{itemize}[leftmargin=*]
+  \item Mobile Apps (Flutter)
+  \item Web Portal (React.js)
+  \item VR Interface (Three.js/WebXR)
+\end{itemize}
+
+\subsection{Application Layer}
+\begin{itemize}[leftmargin=*]
+  \item Django Microservices
+  \item AI Recommendation Engine
+  \item Gamification Service (Redis)
+  \item Content Delivery Network (BunnyCDN)
+\end{itemize}
+
+\subsection{Data Layer}
+\begin{itemize}[leftmargin=*]
+  \item PostgreSQL: User profiles, courses
+  \item MongoDB: Game logs, analytics
+  \item Amazon S3: Media storage
+\end{itemize}
+
+\section{Glossary}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{AI:} Artificial Intelligence, technology for machine learning and adaptive behaviors.
+  \item \textbf{COPPA:} Children's Online Privacy Protection Act, US regulation protecting privacy of children under 13.
+  \item \textbf{GDPR:} General Data Protection Regulation, EU privacy law.
+  \item \textbf{Kubernetes:} Open-source platform for automating deployment, scaling, and management of containerized applications.
+  \item \textbf{React.js:} JavaScript library for building user interfaces, mainly web.
+  \item \textbf{Redis:} In-memory data structure store, used as a database, cache, and message broker.
+  \item \textbf{TensorFlow Lite:} Lightweight machine learning library for mobile and embedded devices.
+  \item \textbf{VR:} Virtual Reality, technology to create immersive simulated environments.
+  \item \textbf{WCAG:} Web Content Accessibility Guidelines, international standards for making web content accessible.
+\end{itemize}
+
+\section{Conclusion}
+Brightpath addresses national education challenges through gamification, AI adaptivity, and family engagement. The MVP will focus on math gamification and parent dashboards, followed by VR integration and school licensing. Development will follow Agile methodology with bi-weekly sprints.
+
+\section*{Appendix}
+% Placeholder for diagrams, UML, wireframes, or additional documentation.
+% You can add figures or input other LaTeX files here as needed.
+
+\begin{thebibliography}{9}
+\bibitem{IEEE29148} ISO/IEC/IEEE 29148:2018, \textit{Systems and software engineering — Life cycle processes — Requirements engineering}, ISO, 2018.
+\bibitem{COPPA} FTC's Children's Online Privacy Protection Rule, \url{https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa}
+\end{thebibliography}
+
+
+\end{document}
