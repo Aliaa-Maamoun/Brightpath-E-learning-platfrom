@@ -130,9 +130,15 @@ e-learning/
 
 ## 🔹 Contributors
 
-Developer: [Your Name]  
-Design: [Your Name]  
-Tester: [Your Name]  
+Developer: Aliaa Maamoun Ibrahim (UMLs and PHP + MySQL (backend & database).)
+contributer: Ziad Mahmoud Hanafi (Jira)
+contributer: Fatma Mahmoud (Jira)
+contributer: Abdelrhman Karam (SRS)
+contributer: Kamal Elsawah (HTML + CSS + Bootstrap + JavaScript (frontend).)
+contributer: Marchellino Michel (powerpoint) 
+
+ — Metrics + Batch Testing
+
 
 ---
 
